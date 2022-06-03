@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "agency.highlysuspect.funnyducttape.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+  ],
+  "client": [
+		"client.ClientboundPlayerInfoPacketMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
