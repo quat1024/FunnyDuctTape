@@ -49,17 +49,12 @@ public class ClientboundPlayerInfoPacketMixin {
 	 * @reason Your mom
 	 */
 	@Overwrite
-	static @Nullable Component readDisplayName(FriendlyByteBuf buf) {
+	public static @Nullable Component readDisplayName(FriendlyByteBuf buf) {
 		FunnyDuctTape.LOGGER.info("Hello from readDisplayName");
 		if(!buf.readBoolean()) return null;
 		
-		FunnyDuctTape.LOGGER.info("Has display name. Entering trycatch");
-		
 		try {
-			FunnyDuctTape.LOGGER.info("Current stacktrace (not an error, yet):");
-			new Exception().printStackTrace();
-			
-			FunnyDuctTape.LOGGER.info("Calling readUtf:");
+			FunnyDuctTape.LOGGER.info("Has display name. Calling readUtf:");
 			String s = buf.readUtf(262144);
 			FunnyDuctTape.LOGGER.info("Got Display Name JSON as string: length {}, text {}", s.length(), s);
 			FunnyDuctTape.LOGGER.info("Trying to parse");
@@ -73,7 +68,7 @@ public class ClientboundPlayerInfoPacketMixin {
 			FunnyDuctTape.LOGGER.error("Trying to salvage FriendlyByteBuf");
 			buf.readerIndex(buf.readableBytes() - 1);
 			
-			return new TextComponent("[FunnyDuctTape] Crash in ClientboundPlayerInfoPacket#readComponent. See log").withStyle(ChatFormatting.RED);
+			return new TextComponent("[FunnyDuctTape] readComponent crashed. See log").withStyle(ChatFormatting.RED);
 		}
 	}
 }
