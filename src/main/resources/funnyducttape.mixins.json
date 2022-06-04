@@ -6,7 +6,8 @@
   "mixins": [
   ],
   "client": [
-		"client.ClientboundPlayerInfoPacketMixin"
+		"client.ClientboundPlayerInfoPacketMixin",
+		"client.PacketDecoderMixin"
   ],
   "injectors": {
     "defaultRequire": 1
