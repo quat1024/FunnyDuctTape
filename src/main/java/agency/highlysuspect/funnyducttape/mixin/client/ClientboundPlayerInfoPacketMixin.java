@@ -40,8 +40,10 @@ public class ClientboundPlayerInfoPacketMixin {
 		
 		friendlyByteBuf.readerIndex(oldIndex);
 		
-		//original method
-		return friendlyByteBuf.readEnum(class_);
+		//call (and trace) original method
+		T thing = friendlyByteBuf.readEnum(class_);
+		FunnyDuctTape.LOGGER.info("Type: " + thing);
+		return thing;
 	}
 	
 	/**
